@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="2" align="center" >
+        <th colspan="8">STUDENT DETAILS</th>
+        <tr>
+            <td rowspan="2">ROLL NO</td>
+            <td rowspan="2">NAME</td>
+            <th colspan="6">MARKS</th>
+        </tr>
+        <tr><td>sub 1</td><td>sub 2</td><td>sub 3</td><td>sub 4</td><td>sub 5</td><td>sub 6</td></tr>
+        {% for x,y in data.items %}
+            <tr>
+               <td>{{ x }}</td>
+               <td>{{ y.name }}</td>
+                  {% for z in y.marks %}
+                      {% if z != 'A' %}
+                            {% if z >= 35 %}
+                                 <th style="color: green;background-color: yellow">{{ z }}</th>
+                            {% else %}
+                                <th style="color: red;background-color: yellow">{{ z }}</th>
+                            {% endif %}
+                      {% else %}
+                           <th style="color: yellow;background-color: red">{{ z }}</th>
+                      {% endif %}
+                    {% endfor %}
+      	         
+             </tr>
+    {% endfor %}
+        
+    </table>
+
+</body>
+</html>
